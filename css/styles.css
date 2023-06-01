@@ -1,0 +1,54 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Proza Libre", sans-serif;
+}
+
+header {
+  background-color: #562b81;
+  color: white;
+}
+
+.navbar {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+img {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 15px;
+}
+
+textarea {
+  height: 140px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-container > button {
+  background-color: #562b81;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 10%;
+}
