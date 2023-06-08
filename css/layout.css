@@ -37,8 +37,8 @@
 
 .row-two {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  padding: 1% 10%;
 }
 
 .row {
@@ -79,6 +79,12 @@ p {
     align-items: center;
     justify-content: space-between;
     margin-left: 6%;
+  }
+
+  .row-two {
+    display: flex;
+    justify-content: center;
+    padding: 1% 33%;
   }
 
   .column-full,
