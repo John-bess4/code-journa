@@ -1,56 +1,70 @@
 
-document.addEventListener('DOMContentLoaded', function () {
-  function renderEntry(entry) {
-    const $listItem = document.createElement('li');
-    const $image = document.createElement('img');
-    const $title = document.createElement('h3');
-    const $description = document.createElement('p');
+function renderEntry(entry) {
+  const $listItem = document.createElement('li');
+  const $image = document.createElement('img');
+  const $title = document.createElement('h3');
+  const $description = document.createElement('p');
 
-    $image.setAttribute('src', entry.image);
-    $title.textContent = entry.title;
-    $description.textContent = entry.description;
+  $image.setAttribute('src', entry.image);
+  $title.textContent = entry.title;
+  $description.textContent = entry.description;
 
-    $listItem.appendChild($image);
-    $listItem.appendChild($title);
-    $listItem.appendChild($description);
+  $listItem.appendChild($image);
+  $listItem.appendChild($title);
+  $listItem.appendChild($description);
 
-    return $listItem;
+  return $listItem;
+}
+
+function toggleNoEntries() {
+  const noEntriesText = document.getElementById('no-entries-text');
+  const entriesList = document.querySelector('[data-view="entries"] ul');
+
+  if (entriesList.children.length === 0) {
+    noEntriesText.classList.remove('hidden');
+  } else {
+    noEntriesText.classList.add('hidden');
   }
+}
 
-  function toggleNoEntries() {
-    const noEntriesText = document.getElementById('no-entries-text');
-    const entriesList = document.querySelector('[data-view="entries"] ul');
+function viewSwap(viewName) {
+  const views = document.querySelectorAll('[data-view]');
+  const navLinks = document.querySelectorAll('.navbar-row');
 
-    if (entriesList.children.length === 0) {
-      noEntriesText.classList.remove('hidden');
+  views.forEach(function (view) {
+    if (view.getAttribute('data-view') === viewName) {
+      view.classList.add('hidden');
     } else {
-      noEntriesText.classList.add('hidden');
+      view.classList.remove('hidden');
     }
-  }
+  });
 
-  function viewSwap(viewName) {
-    const views = document.querySelectorAll('[data-view]');
-    const navLinks = document.querySelectorAll('.navbar a');
+  navLinks.forEach(function (link) {
+    if (link.getAttribute('data-view') === viewName) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 
-    views.forEach(function (view) {
-      if (view.getAttribute('data-view') === viewName) {
-        view.classList.add('hidden');
-      } else {
-        view.classList.remove('hidden');
-      }
-    });
+  data.view = viewName;
+}
 
-    navLinks.forEach(function (link) {
-      if (link.getAttribute('data-view') === viewName) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
+function handleSubmit(event) {
+  event.preventDefault();
 
-    data.view = viewName;
-  }
+  const form = event.target;
+  const entriesList = document.querySelector('[data-view="entries"] ul');
 
+  entriesList.innerHTML = '';
+
+  viewSwap('entries');
+  toggleNoEntries();
+
+  form.reset();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
   const entriesLink = document.querySelector('.navbar-row a[data-view="entries"]');
   entriesLink.addEventListener('click', function (event) {
     event.preventDefault();
@@ -65,30 +79,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const entriesList = document.querySelector('[data-view="entries"] ul');
-
-    entriesList.innerHTML = '';
-
-    viewSwap('entries');
-    toggleNoEntries();
-
-    form.reset();
-  }
-
   const form = document.querySelector('form');
   form.addEventListener('submit', handleSubmit);
 
   const entriesList = document.querySelector('[data-view="entries"] ul');
+
   data.entries.forEach(function (entry) {
     const entryNode = renderEntry(entry);
     entriesList.appendChild(entryNode);
   });
 
   viewSwap(data.view);
-
   toggleNoEntries();
 });
