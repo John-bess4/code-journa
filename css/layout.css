@@ -4,7 +4,8 @@
 
 .container {
   max-width: 575px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 1.5rem;
   padding: auto;
   justify-content: center;
 }
@@ -25,18 +26,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 10%;
+  margin-left: 12%;
 }
 
 .button-container > button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 10%;
+  margin-right: 15%;
 }
 
 .row-two {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 1% 10%;
 }
@@ -45,6 +47,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
 }
 
 .column-full,
@@ -52,10 +55,12 @@
   width: 100%;
 }
 
+.column-half {
+  flex-basis: 50%;
+}
+
 img {
   width: 85%;
-  padding-bottom: 10px;
-  padding-top: 15px;
 }
 
 p {
@@ -81,18 +86,20 @@ p {
     margin-left: 6%;
   }
 
+  .column-full,
+  .column-half {
+    padding: 0 0.75rem;
+    width: 100%;
+  }
+
   .row-two {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 1% 33%;
   }
 
-  .column-full,
   .column-half {
-    padding: 0 0.75rem;
-  }
-
-  .column-half {
-    width: 50%;
+    flex-basis: 50%;
   }
 }
