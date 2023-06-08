@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     views.forEach(function (view) {
       if (view.getAttribute('data-view') === viewName) {
-        view.classList.remove('hidden');
-      } else {
         view.classList.add('hidden');
+      } else {
+        view.classList.remove('hidden');
       }
     });
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     data.view = viewName;
   }
 
-  const entriesLink = document.querySelector('.navbar a[data-view="entries"]');
+  const entriesLink = document.querySelector('.navbar-row a[data-view="entries"]');
   entriesLink.addEventListener('click', function (event) {
     event.preventDefault();
     viewSwap('entries');

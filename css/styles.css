@@ -2,46 +2,15 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-.head-container {
-  display: flex;
-  justify-content: center;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  padding-top: 1em;
-  padding-bottom: 0.75em;
-}
-
-.navbar-content {
-  display: flex;
-  align-items: center;
-}
-
 h2,
 h3 {
   font-family: "Proza Libre", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-h2 {
-  margin-right: 20px;
-  margin-left: 15px;
 }
 
 header {
   background-color: #562b81;
   color: white;
-  text-align: left;
   padding-top: 0.2em;
-}
-
-img {
-  width: 100%;
-  padding-bottom: 10px;
-  padding-top: 15px;
 }
 
 li {
@@ -49,20 +18,11 @@ li {
   font-size: 16px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 10px;
-}
-
 .button-container > button {
   background-color: #562b81;
   color: white;
   border: none;
-  padding: 0.4em 1.3em;
+  padding: 0.6em 1.3em;
   border-radius: 10%;
-}
-
-.button {
-  font-size: 16px;
+  font-size: 12px;
 }

@@ -17,7 +17,7 @@
 <body>
   <header>
     <div class="container">
-      <nav class="navbar column-full">
+      <nav class="navbar-row">
         <h2>Code Journal</h2>
         <h3>Entries</h3>
         <a href="#" data-view="entries"></a>
@@ -25,10 +25,9 @@
     </div>
   </header>
   <main class="container">
-
-    <form id="entry-form" class="button-container column-full">
-
-      <button type="submit">Submit</button>
+    <form id="entry-form" class="button-container">
+      <h3>ENTRIES</h3>
+      <button type="submit">New</button>
     </form>
 
     <div data-view="entries" class="hidden">
@@ -65,7 +64,10 @@
           </p>
         </li>
       </ul>
-      <p id="no-entries-text" class="hidden">No entries have been recorded.</p>
+    </div>
+    <div class="row-two">
+      <p id="no-entries-text" class="hidden"> No entries have been recorded.
+      </p>
     </div>
   </main>
   <script src="js/data.js"></script>
