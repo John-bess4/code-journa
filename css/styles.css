@@ -20,7 +20,6 @@ header {
 
 img {
   width: 100%;
-  padding-bottom: 20px;
 }
 
 label {
@@ -40,15 +39,32 @@ textarea {
   height: 140px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.button-container > button {
+button:first-child {
   background-color: #562b81;
   color: white;
   border: none;
-  padding: 0.6rem;
+  padding: 0.7rem;
   border-radius: 10%;
+  font-size: 12px;
+}
+
+.second-btn-container > button {
+  background-color: #562b81;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  padding: 1px 15px;
+  margin: 15px;
+  font-size: 12px;
+}
+
+.idk {
+  text-decoration: none;
+  color: white;
+  padding: 22px;
+  font-size: 20px;
+}
+
+li {
+  list-style-type: none;
 }
