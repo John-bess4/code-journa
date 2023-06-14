@@ -24,7 +24,7 @@
     <div class="container">
       <nav class="navbar-row">
         <h2>Code Journal</h2>
-        <a href="#" class="idk" data-view="entries"> Entries
+        <a href="#" class="entries-link" data-view="entries"> Entries
         </a>
       </nav>
     </div>
@@ -52,18 +52,18 @@
             <label for="notes">Notes</label>
             <textarea name="notes" id="notes"></textarea>
             <div class="button-container">
-              <button class="new-button" type="submit">Save</button>
+              <button class="submit-button" type="submit">Save</button>
             </div>
           </div>
         </div>
       </form>
     </div>
 
-    <div data-view="entries" class="hidden">
-      <form id="entry-form" class="second-btn-container">
+    <div data-view="entries" class="entries hidden">
+      <div id="entry-form" class="second-btn-container">
         <h3>Entries</h3>
         <button type="submit" class="new-button">New</button>
-      </form>
+      </div>
       <div class="row">
         <ul class="column-half">
         </ul>

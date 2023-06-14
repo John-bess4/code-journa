@@ -3,17 +3,28 @@ const $previewImage = document.querySelector('.new-entry-photo');
 const $form = document.querySelector('form');
 const $nameInput = document.getElementById('title');
 const $notesInput = document.getElementById('notes');
-const $entriesLink = document.querySelector('.navbar-row a[data-view="entries"]');
-const $newEntryLink = document.querySelector('[data-view="entries"] a[data-view="entry-form"]');
-const $newButton = document.getElementsByClassName('new-button')[0];
-const $entryFormButton = document.querySelector('.entry-form-button');
+const $entriesLink = document.querySelector('.entries-link');
+const $entryForm = document.querySelector('[data-view="entry-form"]');
+const $newButton = document.querySelector('.new-button');
+const $submitButton = document.querySelector('.submit-button');
+const $entriesList = document.querySelector('entries');
 
 $urlInput.addEventListener('input', function () {
   $previewImage.setAttribute('src', $urlInput.value);
 });
 
+$newButton.addEventListener('click', viewSwap('entries'));
+
+$submitButton.addEventListener('click', viewSwap('entry-form'));
+
+$entriesLink.addEventListener('click', viewSwap('entry-form'));
+
+if ($entryForm) {
+  $entryForm.addEventListener('click', function (event) {
+    viewSwap('entry-form');
+  });
+}
 $form.addEventListener('submit', function (event) {
-  event.preventDefault();
   const newEntry = {
     entryId: data.nextEntryId,
     title: $nameInput.value,
@@ -31,6 +42,7 @@ $form.addEventListener('submit', function (event) {
 
 document.addEventListener('DOMContentLoaded', function () {
   renderAllEntries();
+  viewSwap(data.view);
 });
 
 function renderEntry(entry) {
@@ -63,12 +75,11 @@ function renderEntry(entry) {
 }
 
 function renderAllEntries() {
-  const entriesList = document.querySelector('[data-view="entries"] ul');
-  entriesList.textContent = '';
+  $entriesList.textContent = '';
 
   data.entries.forEach(function (entry) {
     const entryNode = renderEntry(entry);
-    entriesList.appendChild(entryNode);
+    $entriesList.appendChild(entryNode);
   });
 
   toggleNoEntries();
@@ -76,72 +87,27 @@ function renderAllEntries() {
 
 function toggleNoEntries() {
   const noEntriesText = document.getElementById('no-entries-text');
-  const entriesList = document.querySelector('[data-view="entries"] ul');
-
-  if (entriesList.children.length === 0) {
+  if ($entriesList.children.length === 0) {
     noEntriesText.classList.remove('hidden');
   } else {
     noEntriesText.classList.add('hidden');
   }
 }
+//  get event data view comes from
+//  whatever youre  trying to get event get attribute whatever inside
 
 function viewSwap(viewName) {
-  const views = document.querySelectorAll('[data-view]');
-  const navLinks = document.querySelectorAll('.navbar-row a');
-
-  views.forEach(function (view) {
-    if (view.getAttribute('data-view') === viewName) {
-      view.classList.remove('hidden');
-    } else {
-      view.classList.add('hidden');
-    }
-  });
-
-  navLinks.forEach(function (link) {
-    if (link.getAttribute('data-view') === viewName) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
-  });
-
+  if (viewName === 'entries') {
+    $entryForm.classList.add('.hidden');
+    $entriesList.classList.remove('.hidden');
+  } else if (viewName === 'entry-form') {
+    $entryForm.classList.remove('.hidden');
+    $entriesList.classList.add('.hidden');
+  }
   data.view = viewName;
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const form = event.target;
-  const entriesList = document.querySelector('[data-view="entries"] ul');
-  entriesList.textContent = '';
-  viewSwap('entries');
-  toggleNoEntries();
-  form.reset();
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-  $entriesLink.addEventListener('click', function (event) {
-    event.preventDefault();
-    viewSwap('entries');
-  });
-
-  if ($newEntryLink) {
-    $newEntryLink.addEventListener('click', function (event) {
-      event.preventDefault();
-      viewSwap('entry-form');
-    });
-  }
-
-  $newButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    viewSwap('entry-form');
-  });
-
-  $entryFormButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    viewSwap('entries');
-  });
-
-  $form.addEventListener('submit', handleSubmit);
 
   viewSwap(data.view);
   toggleNoEntries();
