@@ -7,7 +7,7 @@ const $entriesLink = document.querySelector('.entries-link');
 const $entryForm = document.querySelector('.entry-form');
 const $newButton = document.querySelector('.new-button');
 const $submitButton = document.querySelector('.submit-button');
-const $entriesList = document.querySelector('.entries');
+const $entriesList = document.querySelector('[data-view="entries"]');
 const noEntriesText = document.getElementById('no-entries-text');
 
 $urlInput.addEventListener('input', function () {
@@ -15,7 +15,7 @@ $urlInput.addEventListener('input', function () {
 });
 
 $newButton.addEventListener('click', function () {
-  viewSwap('entries');
+  viewSwap('entry-form');
 });
 
 $submitButton.addEventListener('click', function () {
@@ -43,15 +43,15 @@ $form.addEventListener('submit', function (event) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  renderAllEntries();
   viewSwap(data.view);
+  renderAllEntries();
 });
 
 function renderEntry(entry) {
-  const $listItem = document.createElement('li');
-  const $row = document.createElement('div');
-  const $imageColumn = document.createElement('div');
-  const $contentColumn = document.createElement('div');
+  const $listItem = document.createElement('ul');
+  const $row = document.createElement('li');
+  const $imageColumn = document.createElement('li');
+  const $contentColumn = document.createElement('li');
   const $image = document.createElement('img');
   const $title = document.createElement('h3');
   const $description = document.createElement('p');
@@ -77,8 +77,6 @@ function renderEntry(entry) {
 }
 
 function renderAllEntries() {
-  $entriesList.textContent = '';
-
   data.entries.forEach(function (entry) {
     const entryNode = renderEntry(entry);
     $entriesList.appendChild(entryNode);

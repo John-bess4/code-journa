@@ -8,14 +8,13 @@ h3 {
   font-family: "Proza Libre", sans-serif;
 }
 
+h3 {
+  font-size: 28px;
+}
+
 header {
   background-color: #562b81;
   color: white;
-}
-
-.navbar {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 img {
@@ -48,14 +47,15 @@ button:first-child {
   font-size: 12px;
 }
 
-.second-btn-container > button {
+.new-button {
   background-color: #562b81;
   color: white;
   border: none;
   border-radius: 10%;
-  padding: 1px 15px;
-  margin: 15px;
-  font-size: 12px;
+  font-size: 14px;
+  padding: 0 10px;
+  margin-bottom: 35px;
+  margin-top: 20px;
 }
 
 .entries-link {

@@ -4,7 +4,7 @@
 
 .container {
   display: flex;
-  max-width: 575px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 1.5rem;
   justify-content: center;
@@ -38,7 +38,9 @@
 .navbar-row {
   display: flex;
   flex-wrap: no-wrap;
-  padding-right: 4rem;
+  justify-content: flex-start;
+  padding-left: 2.2rem;
+  margin-left: 2em;
 }
 
 .navbar-row > h3 {
@@ -49,14 +51,15 @@
 .button-container {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 1rem;
+  padding-bottom: 0;
 }
 
 .second-btn-container {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 0;
   padding-left: 45px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .column-half > img {
@@ -71,20 +74,22 @@
   .navbar-row {
     display: flex;
     flex-wrap: nowrap;
-    flex-basis: 100%;
-    padding-right: 5.5rem;
+    justify-content: center;
+    padding-right: 20rem;
+    margin-right: 15rem;
+    margin-left: 0;
+    padding-left: 0;
   }
 
   .navbar-row > h3 {
-    padding-right: 15px;
+    margin-right: 15px;
     padding-top: 3.4px;
   }
 
   .second-btn-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding-left: 10px;
+    padding-left: 3.5rem;
   }
 
   .column-full,
@@ -97,7 +102,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1% 33%;
   }
 
   .column-full {
