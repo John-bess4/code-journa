@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Proza+Libre:wght@600&display=swap"
-      rel="stylesheet">
+    rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -31,7 +30,7 @@
   </header>
 
   <main class="container">
-    <div data-view="entry-form">
+    <div class="entry-form" data-view="entry-form">
       <form action="">
         <div class="row">
           <div class="column-full">
@@ -60,9 +59,10 @@
     </div>
 
     <div data-view="entries" class="entries hidden">
-      <div id="entry-form" class="second-btn-container">
+      <div class="row second-btn-container">
         <h3>Entries</h3>
-        <button type="submit" class="new-button">New</button>
+        <button type="button" class="new-button">NEW
+        </button>
       </div>
       <div class="row">
         <ul class="column-half">
@@ -74,8 +74,7 @@
       </div>
     </div>
   </main>
-  <script src="js/main.js"></script>
   <script src="js/data.js"></script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

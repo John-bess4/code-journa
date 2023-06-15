@@ -4,26 +4,28 @@ const $form = document.querySelector('form');
 const $nameInput = document.getElementById('title');
 const $notesInput = document.getElementById('notes');
 const $entriesLink = document.querySelector('.entries-link');
-const $entryForm = document.querySelector('[data-view="entry-form"]');
+const $entryForm = document.querySelector('.entry-form');
 const $newButton = document.querySelector('.new-button');
 const $submitButton = document.querySelector('.submit-button');
-const $entriesList = document.querySelector('entries');
+const $entriesList = document.querySelector('.entries');
+const noEntriesText = document.getElementById('no-entries-text');
 
 $urlInput.addEventListener('input', function () {
   $previewImage.setAttribute('src', $urlInput.value);
 });
 
-$newButton.addEventListener('click', viewSwap('entries'));
+$newButton.addEventListener('click', function () {
+  viewSwap('entries');
+});
 
-$submitButton.addEventListener('click', viewSwap('entry-form'));
+$submitButton.addEventListener('click', function () {
+  viewSwap('entry-form');
+});
 
-$entriesLink.addEventListener('click', viewSwap('entry-form'));
+$entriesLink.addEventListener('click', function () {
+  viewSwap('entries');
+});
 
-if ($entryForm) {
-  $entryForm.addEventListener('click', function (event) {
-    viewSwap('entry-form');
-  });
-}
 $form.addEventListener('submit', function (event) {
   const newEntry = {
     entryId: data.nextEntryId,
@@ -86,25 +88,25 @@ function renderAllEntries() {
 }
 
 function toggleNoEntries() {
-  const noEntriesText = document.getElementById('no-entries-text');
+
   if ($entriesList.children.length === 0) {
     noEntriesText.classList.remove('hidden');
   } else {
     noEntriesText.classList.add('hidden');
   }
 }
-//  get event data view comes from
-//  whatever youre  trying to get event get attribute whatever inside
 
 function viewSwap(viewName) {
+
   if (viewName === 'entries') {
-    $entryForm.classList.add('.hidden');
-    $entriesList.classList.remove('.hidden');
+    $entryForm.classList.add('hidden');
+    $entriesList.classList.remove('hidden');
   } else if (viewName === 'entry-form') {
-    $entryForm.classList.remove('.hidden');
-    $entriesList.classList.add('.hidden');
+    $entryForm.classList.remove('hidden');
+    $entriesList.classList.add('hidden');
   }
   data.view = viewName;
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {

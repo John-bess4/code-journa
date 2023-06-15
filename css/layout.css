@@ -80,7 +80,7 @@
     padding-top: 3.4px;
   }
 
-  .button-containerb {
+  .second-btn-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -114,7 +114,7 @@
     width: 900px;
   }
 
-  .idk {
+  .entries-link {
     text-decoration: none;
     color: white;
     font-size: 20px;
