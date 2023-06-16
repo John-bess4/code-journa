@@ -6,7 +6,6 @@ const $notesInput = document.getElementById('notes');
 const $entriesLink = document.querySelector('.entries-link');
 const $entryForm = document.querySelector('.entry-form');
 const $newButton = document.querySelector('.new-button');
-const $submitButton = document.querySelector('.submit-button');
 const $entriesList = document.querySelector('[data-view="entries"]');
 const noEntriesText = document.getElementById('no-entries-text');
 
@@ -18,11 +17,8 @@ $newButton.addEventListener('click', function () {
   viewSwap('entry-form');
 });
 
-$submitButton.addEventListener('click', function () {
-  viewSwap('entries');
-});
-
 $entriesLink.addEventListener('click', function () {
+  event.preventDefault();
   viewSwap('entries');
 });
 
