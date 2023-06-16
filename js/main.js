@@ -18,11 +18,11 @@ $newButton.addEventListener('click', function () {
 });
 
 $entriesLink.addEventListener('click', function () {
-  event.preventDefault();
   viewSwap('entries');
 });
 
 $form.addEventListener('submit', function (event) {
+  event.preventDefault();
   const newEntry = {
     entryId: data.nextEntryId,
     title: $nameInput.value,
