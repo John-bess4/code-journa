@@ -19,7 +19,7 @@ $newButton.addEventListener('click', function () {
 });
 
 $submitButton.addEventListener('click', function () {
-  viewSwap('entry-form');
+  viewSwap('entries');
 });
 
 $entriesLink.addEventListener('click', function () {
@@ -48,32 +48,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function renderEntry(entry) {
-  const $listItem = document.createElement('ul');
-  const $row = document.createElement('li');
-  const $imageColumn = document.createElement('li');
-  const $contentColumn = document.createElement('li');
+  const $journalEntry = document.getElementById('user-entries');
+  const $listItem = document.createElement('li');
   const $image = document.createElement('img');
   const $title = document.createElement('h3');
   const $description = document.createElement('p');
+  const $imageColumn = document.createElement('div');
+  const $textColumn = document.createElement('div');
 
   $image.setAttribute('src', entry.photoUrl);
   $title.textContent = entry.title;
   $description.textContent = entry.notes;
 
+  $listItem.classList.add('row');
   $imageColumn.classList.add('column-half');
-  $contentColumn.classList.add('column-half');
+  $textColumn.classList.add('column-half');
 
-  $imageColumn.appendChild($image);
-  $contentColumn.appendChild($title);
-  $contentColumn.appendChild($description);
+  $imageColumn.append($image);
+  $textColumn.append($title);
+  $textColumn.append($description);
 
-  $row.classList.add('row');
-  $row.appendChild($imageColumn);
-  $row.appendChild($contentColumn);
+  $journalEntry.appendChild($listItem);
+  $listItem.appendChild($imageColumn);
+  $listItem.appendChild($textColumn);
 
-  $listItem.appendChild($row);
-
-  return $listItem;
+  return $journalEntry;
 }
 
 function renderAllEntries() {
