@@ -104,5 +104,4 @@ function viewSwap(viewName) {
     $entriesList.classList.add('hidden');
   }
   data.view = viewName;
-
 }
