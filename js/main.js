@@ -55,8 +55,9 @@ function renderEntry(entry) {
   const $description = document.createElement('p');
   const $imageColumn = document.createElement('div');
   const $textColumn = document.createElement('div');
-
   $image.setAttribute('src', entry.photoUrl);
+  $image.setAttribute('alt', entry.title);
+
   $title.textContent = entry.title;
   $description.textContent = entry.notes;
 
@@ -105,9 +106,3 @@ function viewSwap(viewName) {
   data.view = viewName;
 
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  viewSwap(data.view);
-  toggleNoEntries();
-});
